@@ -1,0 +1,6 @@
+69099,angry,Hafsah Shahbaz,F
+26080,idiot,Syeda Manal Ammad,O
+88984,batman,Bruce Wayne,M
+66699,superman,Clark Kent,M
+29980,wonderwoman,Diana Prince,F
+55706,golu,Zaffaf Sultan,M
