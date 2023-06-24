@@ -1,4 +1,0 @@
-Coffee Shop,Home,24.0,48.0,88984,Bruce Wayne,Car,Corolla 2016,ABP 241
-nowhere,everywhere,30.0,60.0,69099,Hafsah Shahbaz,Car,Mehran,6969
-N Block,Cafeteria,100.0,150.0,29980,Diana Prince,Van,Child Kidnapper,LWA 885
-Airport,Daily Deli,40.0,40.0,66699,Clark Kent,Bike,Honda CD70,LFH 47
