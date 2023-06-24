@@ -1,6 +1,0 @@
-Daska,Lahore,140.0,210.0,29980,Diana Prince,Van,Child Kidnapper,LWA 885
-FCC Parking,McDonalds,10.0,10.0,66699,Clark Kent,Bike,Honda CD70,LFH 4
-Daska,Lahore,120.0,270.0,66699,Clark Kent,Bike,Honda CD70,LFH 47,18/06/2022
-McDonalds,Sherzi Hall,12.0,162.0,66699,Clark Kent,Bike,Honda CD70,LFH 47,18/06/2022
-test a,test b,33.0,183.0,66699,Clark Kent,Bike,Honda CD70,LFH 47,18/06/2022
-test c,test d,45.0,195.0,66699,Clark Kent,Bike,Honda CD70,LFH 47,18/06/2022
