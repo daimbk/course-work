@@ -1,0 +1,56 @@
+Daim Bin Khalid
+251686775
+Lab 8
+
+create database lab8
+
+create table Customers (
+	CustomerID varchar (255),
+	CustomerName varchar(255),
+	ContactName varchar (255),
+	Address varchar (255),
+	City varchar(255),
+	PostalCode varchar(255),
+	Country varchar(255)
+)
+
+insert into Customers(CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country)
+	values ('1', 'Alfreds Futterkiste', 'Maria Anders', 'Obere Str.57', 'Berlin', '12209', 'Germany'),
+	('2', 'Ana Trujillo Emparedado s y helados', 'Ana Trujillo', 'Avda. de la Constitución 2222', 'México D.F.', '05021', 'Mexico'),
+	('3', 'Antonio Moreno Taquería', 'Antonio Moreno', 'Mataderos 2312', 'México D.F.', '05023 ', 'Mexico'),
+	('4', 'Around the Horn', 'Thomas', '120 Hanover', 'London', 'WA1 1DP', 'UK'),
+	('5', 'Berglunds snabbköp', 'Christina Berglund', 'Berguvsvägen 8', 'Luleå', 'S-958 22', ' Sweden')
+
+select upper(CustomerName) as Customer,
+City from Customers
+
+select lower(CustomerName) as Customer,
+City from Customers
+
+select substring(City,1,4) as 
+ShortCity from Customers
+
+select CustomerName, 
+len(Address) as LengthOfAddress
+from Customers
+
+create table Products (
+	ProductID int,
+	ProductName varchar(255),
+	SupplierID int,
+	CategoryID int,
+	Unit varchar(255),
+	Price float
+)
+
+insert into Products(ProductID, ProductName, SupplierID, CategoryID, Unit, Price)
+	values	(1, 'Chais', 1, 1, '10 boxes x 20 bags', 18),
+			(2, 'Chang', 1, 1, '24 - 12 oz bottles', 19),
+			(3, 'Aniseed Syrup', 1, 2, '12 - 550 ml bottles', 10),
+			(4, 'Chef Antons Cajun Seasoning', 1, 2, '48- 6 oz jars', 22),
+			(5, 'Chef Antons Gumbo Mix', 1, 2, '36 boxes', 21.35)
+
+select round(Price, 0) as Price from Products
+
+select ProductName, Price, format(getdate(),'yyyy-MM-dd') 
+as PerDate from Products

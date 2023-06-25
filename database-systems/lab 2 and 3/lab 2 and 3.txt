@@ -1,0 +1,82 @@
+create table PersonsNotNull(
+	P_Id int not null primary key,
+	LastName varchar(255) not null,
+	FirstName varchar(255),
+	Address varchar(255),
+	City varchar(255) default 'Sandnes',
+	constraint chk_Person check (P_Id>0 AND City='Sandnes'),
+	constraint uc_P_Id unique (P_Id, LastName),
+	--constraint pk_P_Id primary key (P_Id, LastName)
+)
+
+/*
+alter table PersonsNotNull
+add constraint chk_Person check (P_Id>0 AND City='Sandnes')
+*/
+
+alter table PersonsNotNull
+drop constraint chk_Person
+
+/* commented due to repetition
+alter table PersonsNotNull
+alter column City set default 'SANDNES'
+*/
+
+/*
+alter table Persons
+alter column City drop default
+*/
+
+/* commented for submission
+alter table PersonsNotNull
+add unique (P_Id)
+*/
+
+/* commented for submission
+alter table PersonsNotNull
+add constraint uc_P_Id unique (P_Id,LastName)
+*/
+
+alter table PersonsNotNull
+drop constraint uc_P_Id
+
+/*
+alter table PersonsNotNull
+add primary key (P_Id)
+*/
+
+/*
+alter table PersonsNotNull
+add constraint pk_P_Id primary key (P_Id,LastName)
+*/
+
+/*
+alter table PersonsNotNull
+drop constraint pk_P_Id
+*/
+
+-- creating new Order table and defing P_Id as foreign key
+create table Orders
+(
+	O_Id int NOT NULL primary key,
+	OrderNo int NOT NULL,
+	OrderDate date default getdate(),
+	P_Id int foreign key references PersonsNotNull(P_Id),
+	constraint fk_PerOrders foreign key (P_Id) references PersonsNotNull(P_Id)
+)
+
+/*
+alter table Orders
+add foreign key (P_Id)
+references PersonsNotNull(P_Id)
+*/
+
+alter table Orders
+drop constraint fk_PerOrders
+
+insert into PersonsNotNull(P_Id, LastName, FirstName, Address, City)
+values('1', 'Hansen', 'Ola', 'Timoteivn 10', 'Sandnes'),
+('2', 'Svendson', 'Tove', 'Borgvn 23', 'Sandnes'),
+('3', 'Pettersen', 'Kari', 'Storgt 20', 'Stavanger')
+
+select * from PersonsNotNull

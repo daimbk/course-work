@@ -1,0 +1,116 @@
+Lab 9, 10
+Daim Bin Khalid
+251686775
+
+create database dbk_lab9
+
+create table Orders (
+	OrderID int not null,
+	CustomerID int not null,
+	EmployeeID int not null,
+	OrderDate date not null,
+	ShipperID int not null
+)
+
+insert into Orders(OrderID, CustomerID, EmployeeID, OrderDate, ShipperID)
+	values(10265, 1, 2, '1996-07-25', 1),
+	(10266, 2, 3, '1996-07-26', 3),
+	(10267, 3, 4, '1996-07-29', 1)
+
+create table Customers (
+	CustomerID varchar (255),
+	CustomerName varchar(255),
+	ContactName varchar (255),
+	Address varchar (255),
+	City varchar(255),
+	PostalCode varchar(255),
+	Country varchar(255)
+)
+
+insert into Customers(CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country)
+	values ('1', 'Alfreds Futterkiste', 'Maria Anders', 'Obere Str.57', 'Berlin', '12209', 'Germany'),
+	('2', 'Ana Trujillo Emparedado s y helados', 'Ana Trujillo', 'Avda. de la Constitución 2222', 'México D.F.', '05021', 'Mexico'),
+	('3', 'Antonio Moreno Taquería', 'Antonio Moreno', 'Mataderos 2312', 'México D.F.', '05023 ', 'Mexico'),
+	('4', 'Around the Horn', 'Thomas', '120 Hanover', 'London', 'WA1 1DP', 'UK'),
+	('5', 'Berglunds snabbköp', 'Christina Berglund', 'Berguvsvägen 8', 'Luleå', 'S-958 22', ' Sweden')
+
+select Orders.OrderID, Customers.CustomerName, 
+Orders.OrderDate from Orders
+inner join Customers
+on
+Orders.CustomerID=Customers.CustomerID
+
+select Customers.CustomerName, Orders.OrderID
+from Customers 
+inner join Orders
+on Customers.CustomerID=Orders.CustomerID
+order by Customers.CustomerName;
+
+select Customers.CustomerName, 
+Orders.OrderID from Customers
+left join Orders
+on Customers.CustomerID=Orders.CustomerID
+order by Customers.CustomerName;
+
+create table Employees(
+	EmployeeID int,
+	LastName varchar(255),
+	FirstName varchar(255),
+	BirthDate date,
+	Photo varchar(255),
+	Notes varchar(255)
+)
+
+insert into Employees
+	values(1, 'Davolio', 'Nancy', '1968-12-08', 'EmpID1.pic', 'Education includes a BA....'),
+	(2, 'Fuller', 'Andrew', '1952-02-19', 'EmpID2.pic', 'Andrew received his BTS....'),
+	(3, 'Leverling ', 'Janet', '1963-08-30', 'EmpID3.pic', 'Janet has a BS degree....')
+
+select Orders.OrderID, Employees.FirstName
+from Orders
+right join Employees
+on Orders.EmployeeID=Employees.EmployeeID
+order by Orders.OrderID;
+
+select Customers.CustomerName, Orders.OrderID
+from Customers
+full outer join Orders
+on Customers.CustomerID=Orders.CustomerID
+order by Customers.CustomerName;
+
+create table Suppliers (
+	SupplierID int,
+	SupplierName varchar(255),
+	ContactName varchar(255),
+	Address varchar(255),
+	City varchar(255),
+	PostalCode varchar(255),
+	Country varchar(255)
+)
+
+insert into Suppliers
+	values(1, 'Exotic Liquid', 'Charlotte Cooper', '49 Gilbert St.', 'Londona', 'EC1 4SD', 'UK'),
+	(2, 'New Orleans Cajun Delights', 'Shelley Burke', 'P.O. Box 78934', 'New Orleans', '70117', 'USA'),
+	(3, 'Grandma Kelly''s Homestead', 'Regina Murphy', '707 Oxford Rd.', 'Ann Arbor', '48104', 'USA')
+
+select City
+from Customers
+union select City 
+from Suppliers
+order by City;
+
+select City
+from Customers 
+union all
+select City 
+from Suppliers
+order by City;
+
+select City, Country
+from Customers
+where Country='Germany'
+union all
+select City, Country
+from Suppliers
+where Country='Germany'
+ORDER BY City;

@@ -1,0 +1,155 @@
+Daim Bin Khalid
+251686775
+Lab 7
+
+--create database dbk_lab7
+
+create table Products (
+	ProductID int,
+	ProductName varchar(255),
+	SupplierID int,
+	CategoryID int,
+	Unit varchar(255),
+	Price float
+)
+
+insert into Products(ProductID, ProductName, SupplierID, CategoryID, Unit, Price)
+	values	(1, 'Chais', 1, 1, '10 boxes x 20 bags', 18),
+			(2, 'Chang', 1, 1, '24 - 12 oz bottles', 19),
+			(3, 'Aniseed Syrup', 1, 2, '12 - 550 ml bottles', 10),
+			(4, 'Chef Antons Cajun Seasoning', 2, 2, '48- 6 oz jars', 21.35),
+			(5, 'Chef Antons Gumbo Mix', 2, 2, '36 boxes', 25)
+
+select avg(Price) as PriceAverage from Products
+
+select ProductName, Price from Products
+where Price>(select AVG(Price) from 
+Products)
+
+create table Orders (
+	OrderID int not null,
+	CustomerID int not null,
+	EmployeeID int not null,
+	OrderDate date not null,
+	ShipperID int not null
+)
+
+insert into Orders(OrderID, CustomerID, EmployeeID, OrderDate, ShipperID)
+	values(10265, 7, 2, '1996-07-25', 1),
+	(10266, 87, 3, '1996-07-26', 3),
+	(10267, 25, 4, '1996-07-29', 1)
+
+select count(CustomerID) as OrdersFromCustomerID7 
+from Orders where CustomerID=7
+
+select count(*) as NumberOfOrders from Orders
+
+select count(distinct CustomerID) as NumberOfCustomers from Orders
+
+create table Customers (
+	CustomerID varchar (255),
+	CustomerName varchar(255),
+	ContactName varchar (255),
+	Address varchar (255),
+	City varchar(255),
+	PostalCode varchar(255),
+	Country varchar(255)
+)
+
+insert into Customers(CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country)
+	values ('1', 'Alfreds Futterkiste', 'Maria Anders', 'Obere Str.57', 'Berlin', '12209', 'Germany'),
+	('2', 'Ana Trujillo Emparedado s y helados', 'Ana Trujillo', 'Avda. de la Constitución 2222', 'México D.F.', '05021', 'Mexico'),
+	('3', 'Antonio Moreno Taquería', 'Antonio Moreno', 'Mataderos 2312', 'México D.F.', '05023 ', 'Mexico'),
+	('4', 'Around the Horn', 'Thomas', '120 Hanover', 'London', 'WA1 1DP', 'UK'),
+	('5', 'Berglunds snabbköp', 'Christina Berglund', 'Berguvsvägen 8', 'Luleå', 'S-958 22', ' Sweden')
+
+select top 1 CustomerName
+from Customers order by CustomerID asc
+
+select top 1 CustomerName
+from Customers
+order by CustomerID desc
+
+select max(Price) as HighestPrice
+from Products
+
+select min(Price) as SmallestOrderPrice
+from Products
+
+create table OrderDetails(
+	OrderDetailID int,
+	OrderID int,
+	ProductID int,
+	Quantity int
+)
+
+insert into OrderDetails(OrderDetailID, OrderID, ProductID, Quantity)
+	values(1, 10248, 11, 12),
+	(2, 10248, 42, 10),
+	(3, 10248, 72, 5),
+	(4, 10249, 14, 9),
+	(5, 10249, 51, 40)
+
+select sum(Quantity) as TotalItemsOrdered
+from OrderDetails
+
+insert into Orders(OrderID, CustomerID, EmployeeID, OrderDate, ShipperID)
+	values(10248, 90, 5, '1996-07-04', 3),
+	(10249, 81, 6, '1996-07-05', 1),
+	(10250, 34, 4, '1996-07-08', 2)
+
+create table Shippers(
+	ShipperID int,
+	ShipperName varchar(255),
+	Phone varchar(255)
+)
+
+insert into Shippers(ShipperID, ShipperName, Phone)
+	values(1, 'Speedy Express', '(503) 555-9831'),
+	(2, 'United Package', '(503) 555-3199'),
+	(3, 'Federal Shipping', '(503) 555-9931')
+
+create table Employees(
+	EmployeeID int,
+	LastName varchar(255),
+	FirstName varchar(255),
+	BirthDate date,
+	Photo varchar(255),
+	Notes varchar(255)
+)
+
+insert into Employees
+	values(1, 'Davolio', 'Nancy', '1968-12-08', 'EmpID1.pic', 'Education includes a BA....'),
+	(2, 'Fuller', 'Andrew', '1952-02-19', 'EmpID2.pic', 'Andrew received his BTS....'),
+	(3, 'Leverling ', 'Janet', '1963-08-30', 'EmpID3.pic', 'Janet has a BS degree....')
+
+select Shippers.ShipperName, count(Orders.OrderID) as NumberOfOrders 
+from Orders left join Shippers
+on Orders.ShipperID=Shippers.ShipperID 
+group by ShipperName
+
+select Shippers.ShipperName, 
+Employees.LastName, count(Orders.OrderID) 
+as NumberOfOrders
+from ((Orders 
+inner join
+Shippers
+on
+Orders.ShipperID=Shippers.ShipperID
+) inner join Employees
+on Orders.EmployeeID=Employees.EmployeeID)
+group by ShipperName,LastName
+
+select Employees.LastName, count(Orders.OrderID) as NumberOfOrders 
+from (Orders inner join Employees
+on
+Orders.EmployeeID=Employees.EmployeeID) group by LastName
+having count(Orders.OrderID) > 10
+
+select Employees.LastName,
+count(Orders.OrderID) as NumberOfOrders from
+Orders inner join Employees
+on Orders.EmployeeID=Employees.EmployeeID 
+where LastName='Davolio' or 
+LastName='Fuller' group by LastName
+having count(Orders.OrderID) > 25

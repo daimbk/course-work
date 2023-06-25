@@ -1,0 +1,96 @@
+Daim Bin Khalid
+251686775
+DB -B Lab 6
+
+--create database newlab
+
+create table Customers (
+	CustomerID varchar (255)  ,
+	CustomerName varchar(255) ,
+	ContactName varchar (255) ,
+	Address varchar (255),
+	City varchar(255) ,
+	PostalCode varchar(255) ,
+	Country varchar(255) 
+)
+
+insert into Customers(CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country)
+	values ('1', 'Alfreds Futterkiste', 'Maria Anders', 'Obere Str.57', 'Berlin', '12209', 'Germany'),
+	('2', 'Ana Trujillo Emparedado s y helados', 'Ana Trujillo', 'Avda. de la Constitución 2222', 'México D.F.', '05021', 'Mexico'),
+	('3', 'Antonio Moreno Taquería', 'Antonio Moreno', 'Mataderos 2312', 'México D.F.', '05023 ', 'Mexico'),
+	('4', 'Around the Horn', 'Thomas', '120 Hanover', 'London', 'WA1 1DP', 'UK'),
+	('5', 'Berglunds snabbköp', 'Christina Berglund', 'Berguvsvägen 8', 'Luleå', 'S-958 22', ' Sweden')
+
+select * from Customers 
+where City like 'ber%';
+
+select * from 
+Customers where 
+City like '%es%';
+
+select * from
+Customers where 
+City like '_erlin';
+
+select * from
+Customers where 
+City like 'L_n_on';
+
+select * from
+Customers where 
+City like '[bsp]%';
+
+select * from
+Customers where 
+City like '[a-c]%';
+
+select * from
+Customers where 
+City like '[!bsp]%';
+
+select * from 
+Customers where City 
+not like '[bsp]%';
+
+select * from
+Customers where 
+City like 's%';
+
+select * from 
+Customers where 
+Country like '%land%';
+
+select * from Customers
+where Country not like '%land%';
+
+select * from Customers 
+where City in ('Paris','London');
+
+create table Products (
+	ProductID int,
+	ProductName varchar(255),
+	SupplierID int,
+	CategoryID int,
+	Unit varchar(255),
+	Price float
+)
+
+insert into Products(ProductID, ProductName, SupplierID, CategoryID, Unit, Price)
+	values	(1, 'Chais', 1, 1, '10 boxes x 20 bags', 18),
+			(2, 'Chang', 1, 1, '24 - 12 oz bottles', 19),
+			(3, 'Aniseed Syrup', 1, 2, '12 - 550 ml bottles', 10),
+			(4, 'Chef Antons Cajun Seasoning', 1, 2, '48- 6 oz jars', 22),
+			(5, 'Chef Antons Gumbo Mix', 1, 2, '36 boxes', 21.35)
+
+select * from Products
+where Price between 10 and 20;
+
+select * from Products
+where Price not between 10 and 20;
+
+select * from Products
+where (Price between 10 and 20) and not CategoryID in (1,2,3);
+
+select * from Products
+where ProductName between 'C' AND 'M';
+

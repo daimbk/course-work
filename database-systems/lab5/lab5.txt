@@ -1,0 +1,54 @@
+create database MS
+	
+create table Customers (
+	CustomerID varchar (255)  ,
+	CustomerName varchar(255) ,
+	ContactName varchar (255) ,
+	Address varchar (255) ,
+	City varchar(255) ,
+	PostalCode varchar(255)  ,
+	Country varchar(255) 
+)
+
+insert into Customers(CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country)
+	values ('1', 'Alfreds Futterkiste', 'Maria Anders', 'Obere Str.57', 'Berlin', '12209', 'Germany'),
+	('2', 'Ana Trujillo Emparedado s y helados', 'Ana Trujillo', 'Avda. de la Constitución 2222', 'México D.F.', '05021', 'Mexico'),
+	('3', 'Antonio Moreno Taquería', 'Antonio Moreno', 'Mataderos 2312', 'México D.F.', '05023 ', 'Mexico'),
+	('4', 'Around the Horn', 'Thomas', '120 Hanover', 'London', 'WA1 1DP', 'UK')
+
+select * from Customers
+
+select distinct city 
+from Customers
+
+select * from Customers 
+where country ='Mexico'
+
+select * from Customers
+where CustomerID=1
+
+select * from Customers
+where Country='Germany' and City='Berlin'
+
+select * from Customers
+where City='Berlin'OR City='México D.F.'
+
+select* from Customers 
+where Country='Germany' AND (City='Berlin' OR City='München');
+
+select * from Customers 
+order by Country
+
+select * from Customers
+order by Country desc
+
+select * from Customers
+    order by Country,CustomerName
+
+select top 50 percent CustomerName
+from Customers
+
+select top 2 * from Customers
+
+select top 50 percent * from
+Customers

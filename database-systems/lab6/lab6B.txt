@@ -1,0 +1,70 @@
+Daim Bin Khalid
+251686775
+DB -B Lab 6B
+
+--create database newlab
+
+create table Customers (
+	CustomerID varchar (255),
+	CustomerName varchar(255),
+	ContactName varchar (255),
+	Address varchar (255),
+	City varchar(255),
+	PostalCode varchar(255),
+	Country varchar(255)
+)
+
+insert into Customers(CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country)
+	values ('1', 'Alfreds Futterkiste', 'Maria Anders', 'Obere Str.57', 'Berlin', '12209', 'Germany'),
+	('2', 'Ana Trujillo Emparedado s y helados', 'Ana Trujillo', 'Avda. de la Constitución 2222', 'México D.F.', '05021', 'Mexico'),
+	('3', 'Antonio Moreno Taquería', 'Antonio Moreno', 'Mataderos 2312', 'México D.F.', '05023 ', 'Mexico'),
+	('4', 'Around the Horn', 'Thomas', '120 Hanover', 'London', 'WA1 1DP', 'UK'),
+	('5', 'Berglunds snabbköp', 'Christina Berglund', 'Berguvsvägen 8', 'Luleå', 'S-958 22', ' Sweden')
+
+
+create table Orders (
+	OrderID int not null,
+	CustomerID int not null,
+	EmployeeID int not null,
+	OrderDate date not null,
+	ShipperID int not null
+)
+
+insert into Orders(OrderID, CustomerID, EmployeeID, OrderDate, ShipperID)
+	values(10248, 90, 5, '1996-07-04', 3),
+	(10249, 81, 6, '1996-07-05', 1),
+	(10250, 34, 4, '1996-07-08', 2),
+	(10251, 84, 3, '1996-07-09', 1),
+	(10252, 76, 4, '1996-07-10', 2),
+	(10354, 58, 8, '1996-11-14', 3),
+	(10355, 4, 6, '1996-11-15', 1),
+	(10356, 86, 6, '1996-11-18', 2)
+
+select * from Orders
+where OrderDate between '1996-07-04' and '1996-07-09'
+
+select CustomerName as Customer,
+ContactName as [Contact Person] from Customers
+
+select CustomerName, Address + ', ' + City + ', ' + PostalCode + ', ' + Country 
+as Address from Customers
+
+select o.OrderID, o.OrderDate, c.CustomerName
+from Customers as c, Orders as o
+where c.CustomerName = 'Around the Horn' and
+c.CustomerID = o.CustomerID
+
+create table Persons
+(
+ID int identity(1,1) primary key,
+LastName varchar(255) not null,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255)
+)
+
+insert into Persons (FirstName,LastName)
+	values ('Lars','Monsen'),
+	('Manal', 'Paindoo')
+
+select * from Persons
