@@ -1,5 +1,5 @@
-**Daim Bin Khalid - 251686775**<br>
-**Syeda Manal Ammad - 251606966**
+**Daim Bin Khalid**<br>
+**Syeda Manal Ammad**
 <br>
 
 Ma’am Umber Nisar<br>
