@@ -39,8 +39,6 @@ returnValue sumArr(Temp[1...n], start, end) {
 }
 '''
 
-from math import floor
-
 
 def sumArr(list):
     # Brute Force
@@ -63,11 +61,26 @@ def sumArrDC(tempList, start, end):
     elif (start == end - 2):
         return tempList[start] + tempList[start + 1] + tempList[end]
 
-    div1 = floor((start + end) / 3)
-    div2 = floor(div1 * 2)
+    div1 = (start + end) // 3
+    div2 = div1 * 2
 
     leftSum = sumArrDC(tempList, start, div1)
     midSum = sumArrDC(tempList, div1 + 1, div2)
     rightSum = sumArrDC(tempList, div2 + 1, end)
 
     return leftSum + midSum + rightSum
+
+
+# test
+tempList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Brute Force Approach
+size = sumArr(tempList)
+print("Brute Force Result:", size)
+
+# Reset the tempList
+tempList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Divide & Conquer Approach
+size = sumArrDC(tempList, 0, 9)
+print("Divide & Conquer Result:", size)

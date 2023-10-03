@@ -33,8 +33,6 @@ bool compare(T[1..n], Z[1..n], start, end) {
 }
 '''
 
-from math import floor
-
 
 def compare(T, Z, size):
     # Brute Force
@@ -53,8 +51,25 @@ def compareDC(T, Z, start, end):
         else:
             return False
 
-    mid = floor((start + end) / 2)
-    leftCheck = compareDC(T[1..n], Z[1..n], start, mid)
-    rightCheck = compareDC(T[1..n], Z[1..n], mid + 1, end)
+    mid = (start + end) // 2
+    leftCheck = compareDC(T, Z, start, mid)
+    rightCheck = compareDC(T, Z, mid + 1, end)
 
     return leftCheck and rightCheck
+
+
+# test
+tempList1 = [1, 2, 3, 4]
+tempList2 = [1, 2, 3, 4]
+
+# Brute Force Approach
+flag = compare(tempList1, tempList2, 4)
+print("Brute Force Result:", flag)
+
+# Reset the tempList
+tempList1 = [1, 2, 3, 4]
+tempList2 = [1, 2, 3, 4]
+
+# Divide & Conquer Approach
+flag = compareDC(tempList1, tempList2, 0, 3)
+print("Divide & Conquer Result:", flag)

@@ -32,8 +32,6 @@ void swap(Temp[1..n], start, end) {
 }
 '''
 
-from math import floor
-
 
 def swap(tempList, size):
     # Brute Force
@@ -53,6 +51,21 @@ def swapDC(tempList, start, end):
         return
 
     else:
-        mid = floor((start + end) / 2)
+        mid = (start + end) // 2
         swapDC(tempList, start, mid)
         swapDC(tempList, mid + 1, end)
+
+
+# test
+tempList = [2, 4, 8, 16]
+
+# Brute Force Approach
+swap(tempList, 4)
+print("Brute Force Result:", tempList)
+
+# Reset the tempList
+tempList = [2, 4, 8, 16]
+
+# Divide & Conquer Approach
+swapDC(tempList, 0, 3)
+print("Divide & Conquer Result:", tempList)

@@ -45,8 +45,6 @@ returnValue countB(Temp[1...n], start, end) {
 }
 '''
 
-from math import floor
-
 
 def countB(tempList):
     # Brute Force
@@ -76,8 +74,23 @@ def countB_DC(tempList, start, end):
     if (tempList[start] == "C"):
         return 0
 
-    mid = floor((start + end) / 2)
+    mid = (start + end) // 2
     leftCount = countB_DC(tempList, start, mid)
     rightCount = countB_DC(tempList, mid + 1, end)
 
     return leftCount + rightCount
+
+
+# test
+tempList = ["A", "B", "B", "B", "C", "C", "C", "C", "C", "C"]
+
+# Brute Force Approach
+size = countB(tempList)
+print("Brute Force Result:", size)
+
+# Reset the tempList
+tempList = ["A", "B", "B", "B", "C", "C", "C", "C", "C", "C"]
+
+# Divide & Conquer Approach
+size = countB_DC(tempList, 0, 9)
+print("Divide & Conquer Result:", size)

@@ -35,12 +35,10 @@ void addIndices(Temp[1..n], start, end, size) {
 }
 '''
 
-from math import floor
-
 
 def addIndices(tempList, size):
     """Brute force"""
-    one_fifth = floor(size / 5)
+    one_fifth = size // 5
 
     for i in range(size):
         if (tempList[i] % 2 == 0):
@@ -52,15 +50,16 @@ def addIndices(tempList, size):
 
 # Divide & Conquer
 def addIndicesDC(tempList, start, end, size):
-    if (start == end and tempList[start] % 2 == 0):
-        tempList[start] += 3
+    if (start == end):
+        if tempList[start] % 2 == 0:
+            tempList[start] += 3
 
-        if ((start == end) and (start % 2 != 0) and (start < size / 5)):
+        if (start % 2 != 0) and (start < size / 5):
             tempList[start] += 2
 
         return
 
-    mid = floor((start + end) / 2) + 1
+    mid = (start + end) // 2
     addIndicesDC(tempList, start, mid, size)
     addIndicesDC(tempList, mid + 1, end, size)
 
@@ -70,11 +69,11 @@ tempList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 size = len(tempList)
 
 # Brute Force Approach
-# addIndices(tempList, size)
-# print("Brute Force Result:", tempList)
+addIndices(tempList, size)
+print("Brute Force Result:", tempList)
 
 # Reset the tempList
-# tempList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+tempList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 # Divide & Conquer Approach
 addIndicesDC(tempList, 0, 9, size)
