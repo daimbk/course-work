@@ -1,0 +1,49 @@
+Merge Sort :: At each recursive level, Divide your data elements into 3 almost equal parts (arms).
+Algorithm:
+
+merge_sort(arr[1..n], start, end)
+    if start < end
+        div1 <- start + floor((end - start) / 3)
+        div2 <- start + 2 * floor((end - start) / 3)
+
+        merge_sort(arr[1..n], start, div1)
+        merge_sort(arr[1..n], div1 + 1, div2)
+        merge_sort(arr[1..n], div2 + 1, end)
+
+        merge(arr[1..n], start, div1, div2, end)
+
+
+merge(arr[1..n], start, div1, div2, end)
+    tempArr <- new array of size (end - start + 1)
+
+    i <- start
+    j <- div1 + 1
+    k <- div2 + 1
+    l <- 0
+
+    while i <= div1 AND j <= div2 AND k <= end
+        if arr[i] <= arr[j]
+            tempArr[l] <- arr[i]
+            i <- i + 1
+        else
+            tempArr[l] <- arr[j]
+            j <- j + 1
+        l <- l + 1
+
+    while i <= div1
+        tempArr[l] <- arr[i]
+        i <- i + 1
+        l <- l + 1
+
+    while j <= div2
+        tempArr[l] <- arr[j]
+        j <- j + 1
+        l <- l + 1
+
+    while k <= end
+        tempArr[l] <- arr[k]
+        k <- k + 1
+        l <- l + 1
+
+    for m <- start to end
+        arr[m] <- tempArr[m - start]
