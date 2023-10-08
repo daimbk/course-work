@@ -1,0 +1,288 @@
+body {
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", sans-serif;
+}
+
+.description-section {
+  min-height: 100vh;
+}
+
+.upper-half {
+  background-color: #5ce5b4;
+}
+
+.custom-navbar {
+  color: #ffffff;
+  font-weight: 500;
+  padding-bottom: 5px !important;
+}
+
+.navbar-brand {
+  margin-left: 15px;
+  font-weight: 600;
+  font-size: x-large !important;
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+}
+
+.nav-item {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.log-in {
+  margin-left: 15px;
+}
+
+.sign-up {
+  margin-right: 5px;
+}
+
+.round-button {
+  background-color: #ffffff;
+  color: #5ce5b4;
+  border-radius: 20px;
+  text-align: center;
+  align-items: center;
+  padding: 8px 20px;
+  font-weight: 700;
+}
+
+hr {
+  margin: 0 !important;
+  border: 1px solid !important;
+}
+
+.text-body {
+  margin-top: 100px;
+  margin-left: 200px;
+  margin-right: 350px;
+}
+
+#big-text-container,
+#small-text-container {
+  color: #ffffff;
+}
+
+#big-text-container h2 {
+  line-height: 1.5;
+  text-align: left;
+}
+
+#small-text-container {
+  font-weight: 500;
+  font-size: large;
+}
+
+#sign-up-free {
+  text-decoration: none;
+}
+
+#try {
+  margin-left: 20px;
+  color: #ffffff;
+}
+
+.playlist,
+.mix-match {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.dialogue-box {
+  color: #ffffff;
+  background-color: #4dc097;
+  border-radius: 20px;
+  padding-top: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-weight: 500;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: bounce 1s infinite alternate;
+}
+
+.triangle {
+  background-color: transparent;
+  bottom: -15px;
+  left: calc(50% - 10px);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #4dc097;
+  animation: bounce 1s infinite alternate;
+}
+
+.upper-last {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: large;
+  text-align: center;
+}
+
+.lower-half {
+  background-color: #ffffff;
+  color: #666666;
+}
+
+.round-button-lower {
+  background-color: #5ce5b4;
+  color: #ffffff;
+  border-radius: 20px;
+  text-align: center;
+  align-items: center;
+  padding: 8px 25px;
+  font-weight: 700;
+}
+
+.ambient-sounds,
+.productivity,
+.benefits,
+.our-apps {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#headphones {
+  flex: 1;
+  margin-left: 200px;
+  margin-bottom: 200px;
+}
+
+#devices {
+  flex: 1;
+  margin-left: 200px;
+}
+
+#description-text-amb,
+#description-text-apps {
+  flex: 1;
+  margin-right: 100px;
+}
+
+#description-text-amb h2,
+#description-text-apps h2 {
+  text-align: left;
+  font-weight: 650;
+}
+
+#learn-more-button,
+#discover-more-button {
+  text-decoration: none;
+}
+
+#description-text-prod,
+#description-text-benefits {
+  flex: 1;
+  margin-left: 250px;
+  text-align: left;
+}
+
+#description-text-prod h2,
+#description-text-benefits h2 {
+  font-weight: 650;
+}
+
+#toolbox,
+#docs {
+  flex: 1;
+  margin-right: 200px;
+  margin-bottom: 200px;
+}
+
+.good-company {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+#heart {
+  width: 100px;
+  height: 100px;
+}
+
+.good-company h2 {
+  font-weight: 650;
+}
+
+.footer {
+  margin-top: 50px;
+  padding: 0;
+  text-align: left;
+  list-style-type: none;
+  font-size: 14px;
+}
+
+.footer h5 {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #666666;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+  color: #666666;
+}
+
+#top-img {
+  margin-top: 10px;
+}
+
+#bottom-line {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.row {
+  border: 0;
+}
+
+#social-icons {
+  width: 25px;
+  height: auto;
+}
+
+.list-group-item,
+.list-group-item a {
+  color: #666666;
+  text-decoration: none;
+  border: none !important;
+}
+
+.list-group-item a:hover {
+  color: #666666 !important;
+  text-decoration: underline;
+}

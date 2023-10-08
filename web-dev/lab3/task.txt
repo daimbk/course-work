@@ -1,0 +1,21 @@
+You are required to create a HTML CSS and Bootstrap replica of following website.
+
+https://www.noisli.com/
+
+Your replica should be contain five different pages such as:
+
+    Homepage
+    How It Works
+    Features
+    Pricing
+    Login/signup
+
+-When you use bootstrap properly, your website becomes responsive. It is because Bootstrap is based on a mobile-first approach (Read about it!)
+-We need proper navigation among all the pages.
+-Background/font colour can easily be detected using ColorZilla extension of chrome. 
+-You are provided with the assets zip file for using it on the webpages.
+-Your website should bear a striking resemblance to the original website.
+
+You will be graded based upon your effort in the given task.  
+
+You are required to submit all the files in a zipped folder named as your roll number.
