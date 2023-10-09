@@ -1,0 +1,125 @@
+body {
+  background-color: #ffffff;
+  color: #666666;
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", sans-serif;
+  display: flex;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.left-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #d6d6d6;
+}
+
+#name {
+  color: #5ce5b4;
+}
+
+#welcome-text {
+  line-height: 1.8;
+}
+
+.google-login-button {
+  display: inline-flex;
+  align-items: center;
+  width: 300px;
+  padding: 5px;
+  background-color: #ffffff;
+  border: 2px solid #d6d6d6;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.google-login-button:hover {
+  border-color: #5ce5b4;
+}
+
+.google-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.button-text {
+  color: #666666;
+  font-size: 14px;
+  font-weight: 550;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#alt-login-text {
+  margin: 20px;
+  color: #666666;
+  font-size: 14px;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  width: 300px;
+  padding: 10px;
+  border: 2px solid #d6d6d6;
+  border-radius: 20px;
+  outline: none;
+  text-align: left;
+  margin: 10px;
+}
+
+.login-form input[type="email"]:hover,
+.login-form input[type="password"]:hover {
+  border-color: #5ce5b4;
+}
+
+#login-submit {
+  background-color: #5ce5b4;
+  color: #ffffff;
+  width: 320px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  text-align: center;
+  margin: 10px;
+}
+
+.bottom-links {
+  margin: 10px;
+}
+
+.forgot-password,
+.sign-up {
+  font-size: 14px;
+  color: #5ce5b4;
+}
+
+.forgot-password:hover,
+.sign-up:hover {
+  font-size: 14px;
+  color: #52cea2;
+}
+
+.bottom-text {
+  font-size: 14px;
+}
+
+.right-column {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hello-text {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #5ce5b4;
+  text-align: left;
+}
