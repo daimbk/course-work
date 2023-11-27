@@ -2,8 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <math.h>
 
-#define N 5
+#define N 6
 
 int A[N][N], B[N][N];
 pthread_mutex_t mutex;
@@ -48,7 +49,7 @@ void *calculate_matrix(void *arg)
     {
         for (int j = 0; j < N; ++j)
         {
-            A[i][j] = 3 - 2 * (j * k);
+            A[i][j] = 3 * (pow(i, k)) - 2 * (pow(j, k));
             pthread_mutex_lock(&mutex);
             fprintf(file, "%d ", A[i][j]);
             pthread_mutex_unlock(&mutex);
