@@ -49,7 +49,7 @@ void *calculate_matrix(void *arg)
     {
         for (int j = 0; j < N; ++j)
         {
-            A[i][j] = 3 * (pow(i, k)) - 2 * (pow(j, k));
+            A[i][j] = (3 * (pow(i, k))) - (2 * (pow(j, k)));
             pthread_mutex_lock(&mutex);
             fprintf(file, "%d ", A[i][j]);
             pthread_mutex_unlock(&mutex);
