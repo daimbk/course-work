@@ -1,0 +1,28 @@
+.blog-post {
+  display: flex;
+  align-items: center;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.post-image {
+  width: 300px;
+  height: 200px;
+  margin-right: 20px;
+}
+
+.post-content {
+  flex: 1;
+}
+
+h2 {
+  color: white;
+}
+
+h2 {
+  color: whitesmoke;
+}
+
+p {
+  color: #9e8888;
+}
