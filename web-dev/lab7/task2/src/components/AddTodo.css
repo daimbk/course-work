@@ -1,0 +1,15 @@
+* {
+  text-align: center;
+}
+
+input {
+  margin-top: 100px;
+  border-radius: 20px;
+  padding: 1em 2em;
+}
+
+button {
+  margin-left: 10px;
+  border-radius: 20vh;
+  padding: 1em 2em;
+}

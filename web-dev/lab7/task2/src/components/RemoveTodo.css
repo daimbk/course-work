@@ -1,0 +1,21 @@
+h2 {
+  margin-top: 80px;
+}
+
+.remove-todo-container {
+  text-align: center;
+}
+
+.remove-todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.remove-todo-item {
+  margin-bottom: 10px;
+}
+
+.remove-todo-button {
+  padding: 8px;
+  cursor: pointer;
+}
