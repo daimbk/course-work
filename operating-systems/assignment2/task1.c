@@ -1,11 +1,3 @@
-/*
-COMP 301 - B
-Assignment 2
-07/12/23
-Daim Bin Khalid
-251686775
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
