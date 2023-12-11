@@ -38,14 +38,18 @@ int main()
 
             printf("Name: ");
             scanf("%s", student_array[iterator].name);
+
             printf("Age: ");
-            scanf("%d", &student_array[iterator].age);
             if (scanf("%d", &student_array[iterator].age) != 1)
             {
-                printf("Invalid input for age. Enter a valid integer.\n");
-                while (getchar() != '\n')
+                printf("Invalid input for age. Please enter a valid integer.\n");
+
+                // clear the input buffer to avoid an infinite loop
+                int c;
+                while ((c = getchar()) != '\n' && c != EOF)
                     ;
 
+                // retry entering data for the current student
                 continue;
             }
 
