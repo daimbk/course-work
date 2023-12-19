@@ -8,24 +8,6 @@ def test_display(text, dictionary, rows, cols):
         print(row_values)
 
 
-listA = ["M", "A", "T", "H", "S"]
-listB = ["A", "R", "T", "S"]
-
-# create dictionary
-dictionary = {(i, j): -1 for i in range(len(listA) + 1)
-              for j in range(len(listB) + 1)}
-
-# filling of base rows
-for j in range(len(listB) + 1):
-    dictionary[(0, j)] = j
-
-# filling of base cols
-for i in range(len(listA) + 1):
-    dictionary[(i, 0)] = i
-
-test_display("BEFORE", dictionary, len(listA) + 1, len(listB) + 1)
-
-
 def edit_distance_recursive(row, col, dictionary, listA, listB):
     if dictionary[(row, col)] == -1:
         if dictionary[(row - 1, col)] == -1:
@@ -56,5 +38,70 @@ def edit_distance_recursive(row, col, dictionary, listA, listB):
     return dictionary[(row, col)]
 
 
+# ----------------------test 1---------------------
+listA = ["M", "A", "T", "H", "S"]
+listB = ["A", "R", "T", "S"]
+
+# create dictionary
+dictionary = {(i, j): -1 for i in range(len(listA) + 1)
+              for j in range(len(listB) + 1)}
+
+# filling of base rows
+for j in range(len(listB) + 1):
+    dictionary[(0, j)] = j
+
+# filling of base cols
+for i in range(len(listA) + 1):
+    dictionary[(i, 0)] = i
+
+print("TEST 1")
+print(f"Word 1 : {listA}\nWord 2 : {listB}")
+test_display("BEFORE", dictionary, len(listA) + 1, len(listB) + 1)
+edit_distance_recursive(len(listA), len(listB), dictionary, listA, listB)
+test_display("\nAFTER", dictionary, len(listA) + 1, len(listB) + 1)
+
+
+# ----------------------test 2---------------------
+listA = ["S", "I", "T", "T", "I", "N", "G"]
+listB = ["K", "I", "T", "T", "E", "N"]
+
+# create dictionary
+dictionary = {(i, j): -1 for i in range(len(listA) + 1)
+              for j in range(len(listB) + 1)}
+
+# filling of base rows
+for j in range(len(listB) + 1):
+    dictionary[(0, j)] = j
+
+# filling of base cols
+for i in range(len(listA) + 1):
+    dictionary[(i, 0)] = i
+
+print("\nTEST 2")
+print(f"Word 1 : {listA}\nWord 2 : {listB}")
+test_display("BEFORE", dictionary, len(listA) + 1, len(listB) + 1)
+edit_distance_recursive(len(listA), len(listB), dictionary, listA, listB)
+test_display("\nAFTER", dictionary, len(listA) + 1, len(listB) + 1)
+
+
+# ----------------------test 3---------------------
+listA = ["C", "O", "D", "I", "N", "G"]
+listB = ["L", "A", "N", "G", "U", "A", "G", "E"]
+
+# create dictionary
+dictionary = {(i, j): -1 for i in range(len(listA) + 1)
+              for j in range(len(listB) + 1)}
+
+# filling of base rows
+for j in range(len(listB) + 1):
+    dictionary[(0, j)] = j
+
+# filling of base cols
+for i in range(len(listA) + 1):
+    dictionary[(i, 0)] = i
+
+print("\nTEST 3")
+print(f"Word 1 : {listA}\nWord 2 : {listB}")
+test_display("BEFORE", dictionary, len(listA) + 1, len(listB) + 1)
 edit_distance_recursive(len(listA), len(listB), dictionary, listA, listB)
 test_display("\nAFTER", dictionary, len(listA) + 1, len(listB) + 1)

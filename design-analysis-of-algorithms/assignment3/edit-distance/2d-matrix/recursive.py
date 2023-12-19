@@ -7,30 +7,6 @@ def test_display(text, matrix):
         print(" ".join(f"{element:2}" for element in row))
 
 
-listA = ["M", "A", "T", "H", "S"]
-listB = ["A", "R", "T", "S"]
-
-# declare 2d matrix
-row = len(listA) + 1
-col = len(listB) + 1
-matrix = [[-1 for j in range(col)] for i in range(row)]
-
-# filling of base rows
-counter = 0
-for j in range(col):
-    matrix[0][j] = counter
-    counter += 1
-
-# filling of base cols
-counter = 0
-for i in range(row):
-    matrix[i][0] = counter
-    counter += 1
-
-
-test_display("BEFORE", matrix)
-
-
 def edit_distance_recursive(row, col, matrix, listA, listB):
     if (matrix[row][col] == -1):
         if (matrix[row - 1][col] == -1):
@@ -64,5 +40,85 @@ def edit_distance_recursive(row, col, matrix, listA, listB):
     return matrix[row][col]
 
 
+# ----------------------test 1---------------------
+listA = ["M", "A", "T", "H", "S"]
+listB = ["A", "R", "T", "S"]
+
+# declare 2d matrix
+row = len(listA) + 1
+col = len(listB) + 1
+matrix = [[-1 for _ in range(col)] for _ in range(row)]
+
+# filling of base rows
+counter = 0
+for j in range(col):
+    matrix[0][j] = counter
+    counter += 1
+
+# filling of base cols
+counter = 0
+for i in range(row):
+    matrix[i][0] = counter
+    counter += 1
+
+print("TEST 1")
+print(f"Word 1 : {listA}\nWord 2 : {listB}")
+test_display("BEFORE", matrix)
+edit_distance_recursive(row - 1, col - 1, matrix, listA, listB)
+test_display("\nAFTER", matrix)
+
+
+# ----------------------test 2---------------------
+listA = ["S", "I", "T", "T", "I", "N", "G"]
+listB = ["K", "I", "T", "T", "E", "N"]
+
+# declare 2d matrix
+row = len(listA) + 1
+col = len(listB) + 1
+matrix = [[-1 for _ in range(col)] for _ in range(row)]
+
+# filling of base rows
+counter = 0
+for j in range(col):
+    matrix[0][j] = counter
+    counter += 1
+
+# filling of base cols
+counter = 0
+for i in range(row):
+    matrix[i][0] = counter
+    counter += 1
+
+print("\nTEST 2")
+print(f"Word 1 : {listA}\nWord 2 : {listB}")
+test_display("BEFORE", matrix)
+edit_distance_recursive(row - 1, col - 1, matrix, listA, listB)
+test_display("\nAFTER", matrix)
+
+
+# ----------------------test 3---------------------
+listA = ["C", "O", "D", "I", "N", "G"]
+listB = ["L", "A", "N", "G", "U", "A", "G", "E"]
+
+# declare 2d matrix
+row = len(listA) + 1
+col = len(listB) + 1
+matrix = [[-1 for _ in range(col)] for _ in range(row)]
+
+# filling of base rows
+counter = 0
+for j in range(col):
+    matrix[0][j] = counter
+    counter += 1
+
+# filling of base cols
+counter = 0
+for i in range(row):
+    matrix[i][0] = counter
+    counter += 1
+
+print("\nTEST 3")
+print(f"Word 1 : {listA}\nWord 2 : {listB}")
+test_display("BEFORE", matrix)
 edit_distance_recursive(row - 1, col - 1, matrix, listA, listB)
 test_display("\nAFTER", matrix)
