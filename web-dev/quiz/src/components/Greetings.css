@@ -1,0 +1,8 @@
+.greetings {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: wheat;
+  margin-top: 80px;
+}
