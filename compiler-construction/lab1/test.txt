@@ -1,0 +1,3 @@
+Hello friends!
+This is compiler construction lab.
+COMP 451 is a fun course
