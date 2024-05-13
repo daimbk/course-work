@@ -1,0 +1,13 @@
+res://scenes/Player.tscn
+res://scripts/Player.cs
+res://scripts/GameManager.cs
+res://scenes/Level2.tscn
+res://scenes/Game.tscn
+res://scripts/GameOver.cs
+res://scripts/PurpleSlime.cs
+res://scripts/Slime.cs
+res://scripts/Killzone.cs
+res://scripts/Checkpoint.cs
+res://scripts/Hitzone.cs
+res://scripts/Coin.cs
+res://scenes/GameOver.tscn

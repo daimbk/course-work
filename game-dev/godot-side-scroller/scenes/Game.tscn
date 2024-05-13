@@ -1,0 +1,212 @@
+[gd_scene load_steps=18 format=3 uid="uid://weqqsd1u3nk8"]
+
+[ext_resource type="Script" path="res://scripts/GameManager.cs" id="1_qheh3"]
+[ext_resource type="PackedScene" uid="uid://cc8npgcgjlm2k" path="res://scenes/Player.tscn" id="1_vs7lu"]
+[ext_resource type="PackedScene" uid="uid://bikqwm1ck0cqn" path="res://scenes/Platform.tscn" id="3_5torp"]
+[ext_resource type="PackedScene" uid="uid://chphawbowwf2b" path="res://scenes/Level1.tscn" id="3_e4i5n"]
+[ext_resource type="Script" path="res://scripts/Checkpoint.cs" id="4_b7nyq"]
+[ext_resource type="PackedScene" uid="uid://b15orepdq56fb" path="res://scenes/Coin.tscn" id="4_kgl1j"]
+[ext_resource type="PackedScene" uid="uid://bwxifsetxutcj" path="res://scenes/Killzone.tscn" id="5_7kiqj"]
+[ext_resource type="PackedScene" uid="uid://dsty6v6eoxogr" path="res://scenes/Slime.tscn" id="6_22hx1"]
+[ext_resource type="FontFile" uid="uid://c38vfly7t5xqh" path="res://assets/fonts/PixelOperator8.ttf" id="7_40ui2"]
+[ext_resource type="FontFile" uid="uid://wkpp6fdbuk3o" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="9_7bnow"]
+[ext_resource type="AudioStream" uid="uid://325kki6pgdx8" path="res://assets/music/time_for_adventure.mp3" id="10_e6iq4"]
+[ext_resource type="PackedScene" uid="uid://dhkloo0dnips" path="res://scenes/PurpleSlime.tscn" id="11_x7hr6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jr6j"]
+size = Vector2(34, 44)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ihqwb"]
+
+[sub_resource type="Animation" id="Animation_iqwb1"]
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(364, 56)]
+}
+
+[sub_resource type="Animation" id="Animation_3nbio"]
+resource_name = "move"
+length = 2.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(364, 56), Vector2(444, 56)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a4c56"]
+_data = {
+"RESET": SubResource("Animation_iqwb1"),
+"move": SubResource("Animation_3nbio")
+}
+
+[node name="Game" type="Node2D"]
+position = Vector2(-500, -253)
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_qheh3")
+
+[node name="Player" parent="." instance=ExtResource("1_vs7lu")]
+z_index = 5
+position = Vector2(531, 297)
+
+[node name="ui" type="Label" parent="Player"]
+offset_left = -141.0
+offset_top = -86.0
+offset_right = -72.0
+offset_bottom = -56.0
+theme_override_fonts/font = ExtResource("7_40ui2")
+theme_override_font_sizes/font_size = 8
+text = "Health: 100
+Lives: 3
+Score: X"
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -7)
+zoom = Vector2(4, 4)
+limit_bottom = 120
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="Level1" parent="." instance=ExtResource("3_e4i5n")]
+
+[node name="Checkpoint" type="Area2D" parent="Level1"]
+position = Vector2(1063, 152)
+collision_mask = 2
+script = ExtResource("4_b7nyq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level1/Checkpoint"]
+shape = SubResource("RectangleShape2D_6jr6j")
+
+[node name="Killzone" parent="." instance=ExtResource("5_7kiqj")]
+position = Vector2(571, 402)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_ihqwb")
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("4_kgl1j")]
+position = Vector2(68, 75)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("4_kgl1j")]
+position = Vector2(212, 74)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("4_kgl1j")]
+position = Vector2(229, 74)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("4_kgl1j")]
+position = Vector2(485, 43)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("4_kgl1j")]
+position = Vector2(100, -38)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("4_kgl1j")]
+position = Vector2(564, -85)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("4_kgl1j")]
+position = Vector2(729, -20)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("4_kgl1j")]
+position = Vector2(759, -19)
+
+[node name="Coin9" parent="Coins" instance=ExtResource("4_kgl1j")]
+position = Vector2(785, -20)
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="Platform" parent="Platforms" instance=ExtResource("3_5torp")]
+position = Vector2(32, 14)
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("3_5torp")]
+position = Vector2(364, 56)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform2"]
+libraries = {
+"": SubResource("AnimationLibrary_a4c56")
+}
+autoplay = "move"
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Slime" parent="Enemies" instance=ExtResource("6_22hx1")]
+position = Vector2(516, 83)
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="space" type="Label" parent="Labels"]
+offset_left = -115.0
+offset_top = 55.0
+offset_right = -5.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
+theme_override_fonts/font = ExtResource("7_40ui2")
+theme_override_font_sizes/font_size = 8
+text = "Space to Jump"
+
+[node name="fall" type="Label" parent="Labels"]
+offset_left = 365.0
+offset_top = 72.0
+offset_right = 475.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
+theme_override_fonts/font = ExtResource("7_40ui2")
+theme_override_font_sizes/font_size = 8
+text = "Falling hurts"
+
+[node name="almost" type="Label" parent="Labels"]
+offset_left = 714.0
+offset_top = -58.0
+offset_right = 793.0
+offset_bottom = -47.0
+theme_override_colors/font_color = Color(0.0980392, 0.313726, 0.752941, 1)
+theme_override_fonts/font = ExtResource("7_40ui2")
+theme_override_font_sizes/font_size = 8
+text = "Almost there
+"
+
+[node name="good" type="Label" parent="Labels"]
+offset_left = 560.0
+offset_top = -151.0
+offset_right = 670.0
+offset_bottom = -128.0
+theme_override_colors/font_color = Color(0.0784314, 0.596078, 0.862745, 1)
+theme_override_fonts/font = ExtResource("7_40ui2")
+theme_override_font_sizes/font_size = 8
+text = "Great Job!"
+
+[node name="score" type="Label" parent="Labels"]
+offset_left = 544.0
+offset_top = -122.0
+offset_right = 644.0
+offset_bottom = -99.0
+theme_override_colors/font_color = Color(0.0980392, 0.313726, 0.752941, 1)
+theme_override_fonts/font = ExtResource("9_7bnow")
+theme_override_font_sizes/font_size = 8
+text = "You collected X coins"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_e6iq4")
+autoplay = true
+bus = &"Music"
+
+[node name="PurpleSlime" parent="." instance=ExtResource("11_x7hr6")]
+position = Vector2(608, 325)
