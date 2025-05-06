@@ -1,0 +1,23 @@
+4 digit display data pins connected to following Arduino ports:
+pin 6 to pin 5
+pin 8 to pin 6
+pin 9 to pin 7
+pin 12 to pin 8
+
+Q0 - A
+Q1 - B
+Q2 - C
+Q3 - D
+Q4 - E
+Q5 - F
+Q6 - G
+DS - pin 2
+SH_CP - pin 3
+ST_CP - pin 4
+
+keypad row pins: 9 10 11 12
+keypad column pins: A0 A1 A2 A3
+
+
+4 digit anode 7-segment display mapping:
+A = 11; B = 7; C = 4; D = 2; E = 1; F = 10; G = 5; DP = 3
